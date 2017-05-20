@@ -6,3 +6,4 @@
 *.MF
 
 \.project
+/target/
