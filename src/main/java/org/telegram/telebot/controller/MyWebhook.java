@@ -40,6 +40,16 @@ public class MyWebhook {
 			service.sendMessage(msg);
 			return;
 		}
+		
+		if(chat_text.equals("/test1")) {
+			SendMessage msg = new SendMessage();
+			msg.setChat_id(chat_id);
+			msg.setText("Hi, Mister John Doetest");
+			service.sendMessage(msg);
+			return;
+		}
+		
+		
 		}
 
 	}
