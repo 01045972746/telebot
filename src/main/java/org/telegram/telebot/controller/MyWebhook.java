@@ -30,13 +30,14 @@ public class MyWebhook {
 		}
 		String chat_text = update.getMessage().getText();
 		System.out.println(update.getMessage().getChat().getId());
+		System.out.println(update.getMessage().getChat().getFirst_name());
 		System.out.println(update.getMessage().getText());
 		
 		
 		if(chat_text.equals("/welcome")) {
 			SendMessage msg = new SendMessage();
 			msg.setChat_id(chat_id);
-			msg.setText("Hi, Mister John Doe");
+			msg.setText("Hi, "+update.getMessage().getChat().getFirst_name());
 			service.sendMessage(msg);
 			return;
 		}

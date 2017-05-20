@@ -41,10 +41,10 @@ public class Chat implements Serializable{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getFirts_name() {
+	public String getFirst_name() {
 		return first_name;
 	}
-	public void setFirts_name(String firts_name) {
+	public void setFirst_name(String firts_name) {
 		this.first_name = firts_name;
 	}
 	public String getLast_name() {
