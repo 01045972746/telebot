@@ -51,6 +51,8 @@ public class MyWebhook {
 			case "/getTest":
 				File sendfile = Requests.requestGetFile("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf");
 				SendDocument sd = new SendDocument();
+				sd.setChat_id(chat_id);
+				sd.setCaption("TEST");
 				sd.setFileToSend(sendfile);
 				service.sendDocument(sd);
 				break;
