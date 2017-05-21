@@ -1,5 +1,6 @@
 package org.telegram.telebot.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.telegram.telebot.model.Update;
+import org.telegram.telebot.model.methods.SendDocument;
 import org.telegram.telebot.model.methods.SendMessage;
 import org.telegram.telebot.service.Requests;
 import org.telegram.telebot.service.TelegramBotService;
@@ -47,8 +49,10 @@ public class MyWebhook {
 				service.sendMessage(msg);
 				break;
 			case "/getTest":
-				Requests.requestGetFile("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf");
-				System.out.println("test");
+				File sendfile = Requests.requestGetFile("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf");
+				SendDocument sd = new SendDocument();
+				sd.setFileToSend(sendfile);
+				service.sendDocument(sd);
 				break;
 		}
 		
