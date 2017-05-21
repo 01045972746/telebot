@@ -48,7 +48,10 @@ public class MyWebhook {
 				break;
 			case "/getTest":
 				URL url = new URL("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf");
-				File file = new File("");
+				String tDir = System.getProperty("java.io.tmpdir");
+				String path = tDir + "tmp" + ".pdf";
+				File file = new File(path);
+				file.deleteOnExit();
 				FileUtils.copyURLToFile(url, file);
 				SendDocument sd = new SendDocument();
 				sd.setFileToSend(file);
