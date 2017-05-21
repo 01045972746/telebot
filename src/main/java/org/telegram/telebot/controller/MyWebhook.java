@@ -22,7 +22,7 @@ public class MyWebhook {
 	@RequestMapping(value = "/webhook", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void myWebhook(@RequestBody Update update) throws FailResponseMethodException {
-		System.out.println(update.getMessage().getText());
+		System.out.println(update.getCallback_query());
 		if(update != null) {
 		int chat_id = update.getMessage().getChat().getId();
 		if(chat_id < 0) {
