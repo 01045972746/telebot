@@ -20,7 +20,7 @@ public class MyTelegramService extends TelegramBotService{
 	}
 	
 	public byte[] test() throws IOException {
-		URL u = new URL("http://www.java2s.com/binary.dat");
+		URL u = new URL("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf");
 	    URLConnection uc = u.openConnection();
 	    String contentType = uc.getContentType();
 	    int contentLength = uc.getContentLength();
