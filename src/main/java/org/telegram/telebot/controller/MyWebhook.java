@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.telegram.telebot.model.Update;
 import org.telegram.telebot.model.methods.SendMessage;
+import org.telegram.telebot.service.Requests;
 import org.telegram.telebot.service.TelegramBotService;
 import org.telegram.telebot.service.exceptions.FailResponseMethodException;
 import org.telegram.telebot.service.myservices.MyTelegramService;
@@ -46,8 +47,7 @@ public class MyWebhook {
 				service.sendMessage(msg);
 				break;
 			case "/getTest":
-				byte[] test = myservice.test();
-				System.out.println(test.toString());
+				Requests.requestGet("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf");
 				break;
 		}
 		
