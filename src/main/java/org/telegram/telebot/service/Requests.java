@@ -1,8 +1,10 @@
 package org.telegram.telebot.service;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -116,6 +118,44 @@ public class Requests {
 		System.out.println(response.toString());
 
 		return response.toString();
+
+	}
+	
+	public static File requestGetFile(String urlQuery) throws IOException {
+
+		// 1. URL
+		URL url = new URL(urlQuery);
+
+		// 2. Open connection
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+		// 3. Specify POST method
+		conn.setRequestMethod("GET");
+
+		conn.setDoOutput(true);
+
+		// 4. Get the response
+		int responseCode = conn.getResponseCode();
+		System.out.println("\nSending 'GET' request to URL : " + url);
+		System.out.println("Response Code : " + responseCode);
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		while ((inputLine = in.readLine()) != null) {
+			response.append(inputLine);
+		}
+		in.close();
+
+		// 5. Print result
+		File file = new File("./tmp.pdf");
+		BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+		bw.write(response.toString());
+		bw.flush();
+		bw.close();
+
+		return file;
 
 	}
 

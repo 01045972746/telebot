@@ -19,39 +19,5 @@ public class MyTelegramService extends TelegramBotService{
 		return myBotToken;
 	}
 	
-	public byte[] test() throws IOException {
-		URL u = new URL("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf");
-	    URLConnection uc = u.openConnection();
-	    String contentType = uc.getContentType();
-	    int contentLength = uc.getContentLength();
-	    if (contentType.startsWith("text/") || contentLength == -1) {
-	      throw new IOException("This is not a binary file.");
-	    }
-	    InputStream raw = uc.getInputStream();
-	    InputStream in = new BufferedInputStream(raw);
-	    byte[] data = new byte[contentLength];
-	    int bytesRead = 0;
-	    int offset = 0;
-	    while (offset < contentLength) {
-	      bytesRead = in.read(data, offset, data.length - offset);
-	      if (bytesRead == -1)
-	        break;
-	      offset += bytesRead;
-	    }
-	    in.close();
-	
-	    if (offset != contentLength) {
-	      throw new IOException("Only read " + offset + " bytes; Expected " + contentLength + " bytes");
-	    }
-	    String filename ="";
-	    filename = u.getFile().substring(filename.lastIndexOf('/') + 1);
-	    FileOutputStream out = new FileOutputStream(filename);
-	    out.write(data);
-	    out.flush();
-	    out.close();
-	    
-	    return data;
-	  }
-	
 
 }

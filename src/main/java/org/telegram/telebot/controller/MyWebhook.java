@@ -47,7 +47,8 @@ public class MyWebhook {
 				service.sendMessage(msg);
 				break;
 			case "/getTest":
-				Requests.requestGet("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf");
+				Requests.requestGetFile("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf");
+				System.out.println("test");
 				break;
 		}
 		
