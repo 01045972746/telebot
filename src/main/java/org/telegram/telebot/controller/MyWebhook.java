@@ -22,8 +22,6 @@ public class MyWebhook {
 	@Autowired
 	TelegramBotService service;
 	
-	private MyTelegramService myservice;
-	
 	@RequestMapping(value = "/webhook", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void myWebhook(@RequestBody Update update) throws FailResponseMethodException {
@@ -41,7 +39,7 @@ public class MyWebhook {
 				service.sendMessage(msg);
 				break;
 			case "/gettoken":
-				msg.setText(myservice.getTokenBot());
+				msg.setText(service.getTokenBot());
 				service.sendMessage(msg);
 				break;
 			case "/getTest":
