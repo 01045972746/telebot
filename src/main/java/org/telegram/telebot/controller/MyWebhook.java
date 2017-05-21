@@ -40,7 +40,7 @@ public class MyWebhook {
 				msg.setText("Hi, "+update.getMessage().getChat().getFirst_name());
 				service.sendMessage(msg);
 				break;
-			case "/getToken":
+			case "/gettoken":
 				msg.setText(myservice.getTokenBot());
 				service.sendMessage(msg);
 				break;
