@@ -49,6 +49,9 @@ public class MyWebhook {
 				service.sendMessage(msg);
 				break;
 			case "/gethelp":
+				msg.setText("Plz Wait for downloading.....");
+				service.sendMessage(msg);
+				
 				String filename = myservice.getFileFromURL("https://downloads.meetinggear.com/prod_data/webapps/upload/board/2017/02/27/0a42469b-373b-4636-a625-c83ebcc8152a.pdf", "meetinggear.pdf");
 				File f = new File(filename);
 				
