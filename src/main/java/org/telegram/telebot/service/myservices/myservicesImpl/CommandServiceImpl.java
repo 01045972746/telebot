@@ -1,6 +1,7 @@
 package org.telegram.telebot.service.myservices.myservicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.telegram.telebot.model.User;
 import org.telegram.telebot.model.methods.SendDocument;
 import org.telegram.telebot.model.methods.SendMessage;
@@ -16,6 +17,7 @@ import java.io.IOException;
 /**
  * Created by user on 2017-05-28.
  */
+@Service
 public class CommandServiceImpl implements CommandService{
 
     @Autowired

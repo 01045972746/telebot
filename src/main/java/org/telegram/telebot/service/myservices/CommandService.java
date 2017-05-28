@@ -10,7 +10,7 @@ import java.io.IOException;
  * Created by user on 2017-05-28.
  */
 
-@Service
+
 public interface CommandService{
     public void welcome(int chat_id, String name) throws FailResponseMethodException;
     public void getToken(int chat_id) throws FailResponseMethodException;
