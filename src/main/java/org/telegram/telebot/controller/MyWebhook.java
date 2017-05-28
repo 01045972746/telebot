@@ -31,6 +31,7 @@ public class MyWebhook {
 	@RequestMapping(value = "/webhook", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void myWebhook(@RequestBody Update update) throws FailResponseMethodException, IOException {
+		System.out.println("adfasdf");
 		if(update.getMessage() != null) {
 		int chat_id = update.getMessage().getChat().getId();
 		if(chat_id < 0) {
