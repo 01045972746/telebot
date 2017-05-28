@@ -7,3 +7,9 @@
 
 \.project
 /target/
+
+\.idea/artifacts/
+
+\.idea/
+
+*.iml
