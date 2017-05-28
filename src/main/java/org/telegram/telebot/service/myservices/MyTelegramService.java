@@ -19,54 +19,5 @@ public class MyTelegramService extends TelegramBotService{
 		String myBotToken = "304855908:AAHkGwCOIwdEY2JPlXNpqC5KDiW6b-iCBWE";
 		return myBotToken;
 	}
-	
-	public String getFileFromURL(String url, String filename) {
-		URL website = null;
-		ReadableByteChannel rbc = null;
-		FileOutputStream fos = null;
-		
-		try {
-		
-		website = new URL(url);
-		rbc = Channels.newChannel(website.openStream());
-		fos = new FileOutputStream(filename);
-		fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-		
-		
-		}catch(IOException e) {
-			e.printStackTrace();
-		}finally {
-			website = null;
-			if(rbc != null)
-				try {
-					rbc.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			if(fos != null)
-				try {
-					fos.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		}
-		
-		return filename;
-	}
-	
-	public String deleteFileFromLocal(String filename) {
-		File file = new File(filename);
-		
-		if(file.delete()) {
-			return "Success";
-		}
-		else {
-			return "Failed";
-		}
-		
-	}
-	
 
 }
