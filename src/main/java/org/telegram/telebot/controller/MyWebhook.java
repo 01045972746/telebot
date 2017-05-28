@@ -40,6 +40,8 @@ public class MyWebhook {
 			case "/gethelp":
 				commandService.getHelp(chat_id);
 				break;
+			default:
+				commandService.defaultMessage(chat_id);
 		}
 		}
 		

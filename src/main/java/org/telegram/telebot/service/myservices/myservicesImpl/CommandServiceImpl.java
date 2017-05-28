@@ -25,6 +25,13 @@ public class CommandServiceImpl implements CommandService{
     @Autowired
     private MyTelegramService myService;
 
+    @Override
+    public void defaultMessage(int chat_id) throws FailResponseMethodException {
+        SendMessage msg = new SendMessage();
+        msg.setChat_id(chat_id);
+        msg.setText("I don't know what did you mean!");
+        teleService.sendMessage(msg);
+    }
 
     @Override
     public void welcome(int chat_id, String name) throws FailResponseMethodException {

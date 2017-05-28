@@ -12,6 +12,7 @@ import java.io.IOException;
 
 
 public interface CommandService{
+    public void defaultMessage(int chat_id) throws FailResponseMethodException;
     public void welcome(int chat_id, String name) throws FailResponseMethodException;
     public void getToken(int chat_id) throws FailResponseMethodException;
     public void getHelp(int chat_id) throws IOException, FailResponseMethodException;
