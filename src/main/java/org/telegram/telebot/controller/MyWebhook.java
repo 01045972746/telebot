@@ -2,6 +2,7 @@ package org.telegram.telebot.controller;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.telegram.telebot.service.myservices.CommandService;
 @Controller
 public class MyWebhook {
 
+	@Autowired
 	private CommandService commandService;
 	
 	@RequestMapping(value = "/webhook", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

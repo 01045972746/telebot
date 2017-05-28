@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * Created by user on 2017-05-28.
  */
-public class CommandServiceImple implements CommandService{
+public class CommandServiceImpl implements CommandService{
 
     @Autowired
     private TelegramBotService teleService;
